@@ -42,20 +42,6 @@ Parameter | Description
 `STORED` | _(Default)_ The computed column is stored alongside other columns. This is required if the column appears in the [Primary Key](primary-key.html).
 `VIRTUAL` | The computed column is only computed when rows are read.
 
-## Computed Columns and Partitioning
-
-[Partitioning] requires that partitions are defined using columns that are a prefix of the primary key. In the case of geo-partitioning, some applications will want to collapse the number of possible values in this column, to make certain classes of queries more performant (see Query planning changes in the RFC for details). For example, if a users table has a country and state column, then a CockroachDB operator could make a stored computed column locality with a reduced domain for use in partitioning.
-
-### Example
-
-
-## Computed Columns and `JSONB` Columns
-
-
-### Example
-
-
-
 ## Examples
 
 ### Create a table with a computed column
@@ -72,11 +58,10 @@ In this example, let's create a simple table
 
 
 
-
 ## See Also
 
-- [`JSONB`](jsonb.html)
-- [Define Table Partitions (Enterprise)](partitioning.html)
-- [`CREATE TABLE`](create-table.html)
 - [Value Expressions](sql-expressions.html)
 - [Information Schema](information-schema.html)
+- [Define Table Partitions (Enterprise)](partitioning.html)
+- [`CREATE TABLE`](create-table.html)
+- [`JSONB`](jsonb.html)
